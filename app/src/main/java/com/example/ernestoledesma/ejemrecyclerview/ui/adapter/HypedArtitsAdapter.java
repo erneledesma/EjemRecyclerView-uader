@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.ernestoledesma.ejemrecyclerview.R;
 import com.example.ernestoledesma.ejemrecyclerview.domain.Artist;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.StringTokenizer;
@@ -18,7 +19,7 @@ import java.util.StringTokenizer;
 /**
  * Created by ernestoledesma on 11/10/16.
  */
-//tiene una estructura de diamante, aqui creamos nuestro ViewHoldr
+//tiene una estructura de diamante, aqui creamos nuestro ViewHolder
 public class HypedArtitsAdapter extends RecyclerView.Adapter<HypedArtitsAdapter.HypedArtistViewHolder> {
     //el adaptador debera tenr una estructura de arreglos de vistas
     ArrayList<Artist> artists;
@@ -55,6 +56,11 @@ public class HypedArtitsAdapter extends RecyclerView.Adapter<HypedArtitsAdapter.
         //creamos un objeto temporal para instanciar el metodo
         Artist currentArtist = artists.get(position);
         holder.setArtistName(currentArtist.getName());
+
+        if (currentArtist.getUrlMediumImage() != null)
+        holder.setArtistImage(currentArtist.getUrlMediumImage());
+
+        else holder.setArtistDefaultImage();
 
 
     }
@@ -93,8 +99,19 @@ public class HypedArtitsAdapter extends RecyclerView.Adapter<HypedArtitsAdapter.
         //generamos una clase para pasarles los parametros del array
         public  void setArtistName (String name ){
             artistName.setText(name);
-
-
         }
+
+        public void setArtistImage (String url){
+            Picasso.with(context)
+                    .load(url)
+                    .placeholder(R.drawable.artist_place_holder)
+                    .into(artistImage);
+        }
+        public void setArtistDefaultImage(){
+            Picasso.with(context)
+                    .load(R.drawable.artist_place_holder)
+                    .into(artistImage);
+        }
+
     }
 }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EjemRecyclerView.iml" filepath="$PROJECT_DIR$/EjemRecyclerView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Ejem_Deserializadores.iml" filepath="$PROJECT_DIR$/Ejem_Deserializadores.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
